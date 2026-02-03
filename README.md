@@ -36,7 +36,7 @@ A complete cheat sheet and resource guide for mastering bitwise operations in Co
 | Goal | Formula | Explanation |
 | :--- | :--- | :--- |
 | **Check if set** | `(n & (1 << k)) != 0` | If non-zero, the bit is 1. |
-| **Set bit** | `n | (1 << k)` | Forces the $k$-th bit to 1. |
+| **Set bit** | `n = n \| (1 << k)` | Forces the k-th bit to 1. |
 | **Unset (Clear) bit** | `n & ~(1 << k)` | Forces the $k$-th bit to 0. |
 | **Toggle bit** | `n ^ (1 << k)` | Flips 0 to 1 and 1 to 0. |
 
