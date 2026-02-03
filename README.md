@@ -11,9 +11,6 @@ A complete cheat sheet and resource guide for mastering bitwise operations in Co
 - [2. Basic Bit Tricks (O(1) Shortcuts)](#2-basic-bit-tricks-o1-shortcuts)
 - [3. The "XOR Magic"](#3-the-xor-magic)
 - [4. Advanced & Competitive Programming Tricks](#4-advanced--competitive-programming-tricks)
-- [5. Common DSA Patterns](#5-common-dsa-patterns)
-- [6. Learning Resources](#6-learning-resources)
-- [7. Graded Problem List](#7-graded-problem-list)
 
 ---
 
