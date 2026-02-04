@@ -52,12 +52,13 @@ A complete cheat sheet and resource guide for mastering bitwise operations in Co
 
 ### Low-Level Hacks
 
-| Operation                | Trick                       |
-| ------------------------ | --------------------------- |
-| Clear lowest set bit     | `n & (n - 1)`               |
-| Isolate lowest set bit   | `n & (-n)`                  |
-| Isolate lowest unset bit | `~n & (n + 1)`              |
-| Clear bits LSB → k       | `n & ~((1 << (k + 1)) - 1)` |
+| Operation                  | Trick                       |
+| -------------------------- | --------------------------- |
+| Clear lowest set bit       | `n & (n - 1)`               |
+| Isolate lowest set bit     | `n & (-n)`                  |
+| Isolate lowest unset bit   | `~n & (n + 1)`              |
+| Clear bits LSB → k         | `n & ~((1 << (k + 1)) - 1)` |
+| Get the right-most set bit | `n & -n`                    |
 
 ---
 
