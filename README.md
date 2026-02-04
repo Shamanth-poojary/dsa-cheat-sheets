@@ -51,6 +51,7 @@ A complete cheat sheet and resource guide for mastering bitwise operations in Co
 * **Isolate lowest set bit:** `n & (-n)` *(Returns 00...010...00)*
 * **Isolate lowest unset bit:** `~n & (n + 1)`
 * **Clear all bits from LSB to k-th bit:** `n & ~((1 << (k + 1)) - 1)`
+* **Grey code generation upto $2^n$:** `i ^ (i >> 1)`*(compute i from 0 to 2^n)*
 
 ---
 
