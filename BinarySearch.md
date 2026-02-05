@@ -1,1 +1,0 @@
-In this you will learn about the higher application of binary search  
