@@ -14,17 +14,29 @@ A one-stop structured reference for mastering **Tree Data Structures** in Compet
    - [Zigzag Traversal](#zigzag-traversal)
 
 2. [Height and Diameter Tricks](#height-and-diameter-tricks)
+
 3. [Important Pattern Techniques](#important-pattern-techniques)
+
 4. [BST Special Tricks](#bst-special-tricks)
+
 5. [Path Based Tricks](#path-based-tricks)
+
 6. [View Based Techniques](#view-based-techniques)
+
 7. [Serialization Trick](#serialization-trick)
+
 8. [Level Tracking Trick](#level-tracking-trick)
+
 9. [Balanced Tree Trick](#balanced-tree-trick)
+
 10. [Complete Tree Trick](#complete-tree-trick)
+
 11. [Iterative Traversal Trick](#iterative-traversal-trick)
+
 12. [Morris Traversal](#morris-traversal)
+
 13. [Tree DP](#tree-dp)
+
 14. [Convert Tree Tricks](#convert-tree-tricks)
 
 ---
@@ -51,6 +63,9 @@ void inorder(Node* root) {
 }
 ```
 
+**Time Complexity:** O(n)
+**Space Complexity:** O(h) (recursion stack)
+
 ---
 
 ## Preorder Traversal
@@ -72,6 +87,9 @@ void preorder(Node* root) {
     preorder(root->right);
 }
 ```
+
+**Time Complexity:** O(n)
+**Space Complexity:** O(h)
 
 ---
 
@@ -95,16 +113,14 @@ void postorder(Node* root) {
 }
 ```
 
+**Time Complexity:** O(n)
+**Space Complexity:** O(h)
+
 ---
 
 ## Level Order Traversal
 
 **Algorithm:** Use queue to process nodes level by level.
-
-**Use Cases:**
-
-- Shortest path in tree
-- View problems
 
 **C++ Code:**
 
@@ -123,15 +139,12 @@ void levelOrder(Node* root) {
 }
 ```
 
+**Time Complexity:** O(n)
+**Space Complexity:** O(n)
+
 ---
 
 ## Zigzag Traversal
-
-**Algorithm:** Alternate direction at each level using queue.
-
-**Use Cases:**
-
-- Spiral order problems
 
 **C++ Code:**
 
@@ -163,15 +176,14 @@ vector<vector<int>> zigzag(Node* root) {
 }
 ```
 
+**Time Complexity:** O(n)
+**Space Complexity:** O(n)
+
 ---
 
 # Height and Diameter Tricks
 
 ## Height of Tree
-
-**Algorithm:** Height = 1 + max(left, right)
-
-**C++ Code:**
 
 ```cpp
 int height(Node* root) {
@@ -180,13 +192,12 @@ int height(Node* root) {
 }
 ```
 
+**Time Complexity:** O(n)
+**Space Complexity:** O(h)
+
 ---
 
 ## Diameter of Tree in O(N)
-
-**Algorithm:** Return {height, diameter} from each node.
-
-**C++ Code:**
 
 ```cpp
 pair<int,int> solve(Node* root) {
@@ -202,15 +213,14 @@ pair<int,int> solve(Node* root) {
 }
 ```
 
+**Time Complexity:** O(n)
+**Space Complexity:** O(h)
+
 ---
 
 # Important Pattern Techniques
 
 ## Using Global Variables
-
-**Algorithm:** Maintain global answer while traversing.
-
-**C++ Code:**
 
 ```cpp
 int ans = INT_MIN;
@@ -224,15 +234,14 @@ int maxPath(Node* root) {
 }
 ```
 
+**Time Complexity:** O(n)
+**Space Complexity:** O(h)
+
 ---
 
 # BST Special Tricks
 
 ## Validate BST
-
-**Algorithm:** Check node value lies in range.
-
-**C++ Code:**
 
 ```cpp
 bool isValid(Node* root, long min, long max) {
@@ -244,11 +253,12 @@ bool isValid(Node* root, long min, long max) {
 }
 ```
 
+**Time Complexity:** O(n)
+**Space Complexity:** O(h)
+
 ---
 
 ## Inorder Successor
-
-**C++ Code:**
 
 ```cpp
 Node* successor(Node* root) {
@@ -259,11 +269,12 @@ Node* successor(Node* root) {
 }
 ```
 
+**Time Complexity:** O(h)
+**Space Complexity:** O(1)
+
 ---
 
 # Path Based Tricks
-
-**C++ Code:**
 
 ```cpp
 void paths(Node* root, vector<int>& path) {
@@ -281,11 +292,12 @@ void paths(Node* root, vector<int>& path) {
 }
 ```
 
+**Time Complexity:** O(n)
+**Space Complexity:** O(h)
+
 ---
 
 # View Based Techniques
-
-**C++ Code (Top View):**
 
 ```cpp
 map<int,int> mp;
@@ -301,11 +313,12 @@ while(!q.empty()){
 }
 ```
 
+**Time Complexity:** O(n log n)
+**Space Complexity:** O(n)
+
 ---
 
 # Serialization Trick
-
-**C++ Code:**
 
 ```cpp
 string serialize(Node* root) {
@@ -316,17 +329,32 @@ string serialize(Node* root) {
 }
 ```
 
+**Time Complexity:** O(n)
+**Space Complexity:** O(n)
+
 ---
 
 # Level Tracking Trick
 
-**Algorithm:** Store (node, level) in queue for problems like vertical order.
+```cpp
+queue<pair<Node*, int>> q;
+q.push({root, 0});
+
+while(!q.empty()) {
+    auto [node, level] = q.front();
+    q.pop();
+
+    if(node->left) q.push({node->left, level+1});
+    if(node->right) q.push({node->right, level+1});
+}
+```
+
+**Time Complexity:** O(n)
+**Space Complexity:** O(n)
 
 ---
 
 # Balanced Tree Trick
-
-**C++ Code:**
 
 ```cpp
 int check(Node* root) {
@@ -340,17 +368,36 @@ int check(Node* root) {
 }
 ```
 
+**Time Complexity:** O(n)
+**Space Complexity:** O(h)
+
 ---
 
 # Complete Tree Trick
 
-**Algorithm:** Use subtree height comparison to count nodes in O(log^2 n).
+```cpp
+int countNodes(Node* root) {
+    if(!root) return 0;
+
+    int lh = 0, rh = 0;
+    Node* l = root;
+    Node* r = root;
+
+    while(l) { lh++; l = l->left; }
+    while(r) { rh++; r = r->right; }
+
+    if(lh == rh) return (1 << lh) - 1;
+
+    return 1 + countNodes(root->left) + countNodes(root->right);
+}
+```
+
+**Time Complexity:** O(log^2 n)
+**Space Complexity:** O(log n)
 
 ---
 
 # Iterative Traversal Trick
-
-**C++ Code (Inorder):**
 
 ```cpp
 stack<Node*> st;
@@ -366,23 +413,88 @@ while(curr || !st.empty()) {
 }
 ```
 
+**Time Complexity:** O(n)
+**Space Complexity:** O(h)
+
 ---
 
 # Morris Traversal
 
-**Algorithm:** Threaded binary tree technique for O(1) space traversal.
+```cpp
+void morrisInorder(Node* root) {
+    Node* curr = root;
+
+    while(curr) {
+        if(!curr->left) {
+            cout << curr->data << " ";
+            curr = curr->right;
+        } else {
+            Node* pred = curr->left;
+            while(pred->right && pred->right != curr)
+                pred = pred->right;
+
+            if(!pred->right) {
+                pred->right = curr;
+                curr = curr->left;
+            } else {
+                pred->right = NULL;
+                cout << curr->data << " ";
+                curr = curr->right;
+            }
+        }
+    }
+}
+```
+
+**Time Complexity:** O(n)
+**Space Complexity:** O(1)
 
 ---
 
 # Tree DP
 
-**Algorithm:** Postorder returning multiple values for DP problems.
+```cpp
+pair<int,int> treeDP(Node* root) {
+    if(!root) return {0,0};
+
+    auto L = treeDP(root->left);
+    auto R = treeDP(root->right);
+
+    int include = root->data + L.second + R.second;
+    int exclude = max(L.first, L.second) + max(R.first, R.second);
+
+    return {include, exclude};
+}
+```
+
+**Time Complexity:** O(n)
+**Space Complexity:** O(h)
 
 ---
 
 # Convert Tree Tricks
 
-**Algorithm:** Convert tree to array using traversal then apply array logic.
+```cpp
+void flatten(Node* root) {
+    if(!root) return;
+
+    flatten(root->left);
+    flatten(root->right);
+
+    Node* temp = root->right;
+    root->right = root->left;
+    root->left = NULL;
+
+    Node* curr = root;
+    while(curr->right)
+        curr = curr->right;
+
+    curr->right = temp;
+}
+```
+
+**Time Complexity:** O(n)
+**Space Complexity:** O(h)
 
 ---
 
@@ -396,4 +508,4 @@ while(curr || !st.empty()) {
 
 ---
 
-### 🚀 Ready-to-use reference for tree problems!
+### 🚀 Final Ready-to-use Tree Cheat Sheet with Complexity Analysis!
