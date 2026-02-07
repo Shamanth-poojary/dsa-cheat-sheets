@@ -125,7 +125,7 @@ For a node at index i:
 | ----------- | --------- |
 | Left Child  | 2\*i + 1  |
 | Right Child | 2\*i + 2  |
-| Parent      | (i-1) / 2 |
+| Parent      | i         |
 
 ## Example
 
