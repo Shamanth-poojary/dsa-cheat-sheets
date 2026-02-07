@@ -6,7 +6,7 @@
 
 ## Table of Contents
 
-1. [Tree representations](#tree-representations-in)
+1. [Tree representations](#tree-representations-in-data-structures)
 2. [Traversal Techniques](#traversal-techniques)
    - [Inorder Traversal](#inorder-traversal)
    - [Preorder Traversal](#preorder-traversal)
