@@ -121,11 +121,11 @@ Store elements level-by-level in an array.
 
 For a node at index i:
 
-| Relation    | Formula   |
-| ----------- | --------- |
-| Left Child  | 2\*i + 1  |
-| Right Child | 2\*i + 2  |
-| Parent      | i         |
+| Relation    | Formula  |
+| ----------- | -------- |
+| Left Child  | 2\*i + 1 |
+| Right Child | 2\*i + 2 |
+| Parent      | i        |
 
 ## Example
 
