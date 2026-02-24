@@ -9,6 +9,6 @@ A collection of personal cheat sheets for Data Structures and Algorithms.
 - [Sorting-techniques](sorting-techniques.md)
 - [STL-in-C++](STL-in-C++.md)
 - [Array-solvingTechniques](Array-solvingTechinques.md)
+- [Trees](trees.md)
 
-
-More topics will be added over time.
+  More topics will be added over time
