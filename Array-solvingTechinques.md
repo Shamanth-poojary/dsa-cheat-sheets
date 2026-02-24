@@ -2,29 +2,29 @@
 
 This document covers:
 
--  [Two Pointer Technique](#1️⃣-two-pointer-technique)
--   [Sliding Window](#2️⃣-sliding-window)
--   [Kadane's Algorithm](#3️⃣-kadanes-algorithm)
--   [Prefix Sum](#4️⃣-prefix-sum)
+- [Two Pointer Technique](#1️⃣-two-pointer-technique)
+- [Sliding Window](#2️⃣-sliding-window)
+- [Kadane's Algorithm](#3️⃣-kadanes-algorithm)
+- [Prefix Sum](#4️⃣-prefix-sum)
 
 For each pattern: - When to use - Requirements - How to apply -
 Limitations - Failure cases
 
-------------------------------------------------------------------------
+---
 
 # 1️⃣ Two Pointer Technique
 
 ## ✅ When to Use
 
--   Array is **sorted** OR can be sorted
--   Finding pairs or triplets
--   Target sum problems
--   Removing duplicates
--   Merging sorted arrays
--   Comparing elements from both ends
--   Partitioning problems
+- Array is **sorted** OR can be sorted
+- Finding pairs or triplets
+- Target sum problems
+- Removing duplicates
+- Merging sorted arrays
+- Comparing elements from both ends
+- Partitioning problems
 
-------------------------------------------------------------------------
+---
 
 ## 🔹 Requirements to Apply
 
@@ -33,7 +33,7 @@ Limitations - Failure cases
 ✔ Moving pointers must reduce search space logically\
 ✔ Only local comparison is required
 
-------------------------------------------------------------------------
+---
 
 ## 🔹 Types
 
@@ -41,7 +41,7 @@ Limitations - Failure cases
 
 Used mainly for sorted arrays.
 
-``` cpp
+```cpp
 int left = 0;
 int right = n - 1;
 
@@ -54,13 +54,13 @@ while (left < right) {
 }
 ```
 
-------------------------------------------------------------------------
+---
 
 ### B) Slow & Fast Pointer
 
 Used for: - Remove duplicates - Move zeros - Cycle detection
 
-``` cpp
+```cpp
 int slow = 0;
 for (int fast = 1; fast < n; fast++) {
     if (arr[fast] != arr[slow]) {
@@ -70,37 +70,37 @@ for (int fast = 1; fast < n; fast++) {
 }
 ```
 
-------------------------------------------------------------------------
+---
 
 ## ❌ Limitations
 
--   Fails for unsorted arrays (unless sorting allowed)
--   Cannot handle non-monotonic conditions
--   Not useful for arbitrary non-contiguous combinations
--   Sorting may break index-based problems
+- Fails for unsorted arrays (unless sorting allowed)
+- Cannot handle non-monotonic conditions
+- Not useful for arbitrary non-contiguous combinations
+- Sorting may break index-based problems
 
-------------------------------------------------------------------------
+---
 
 # 2️⃣ Sliding Window
 
 Used for **contiguous subarray problems**
 
-------------------------------------------------------------------------
+---
 
 ## ✅ When to Use
 
--   Subarray problems
--   Maximum/minimum of size k
--   Longest substring with condition
--   Smallest subarray ≥ target
+- Subarray problems
+- Maximum/minimum of size k
+- Longest substring with condition
+- Smallest subarray ≥ target
 
-------------------------------------------------------------------------
+---
 
 ## 🔹 Core Requirement
 
 👉 Elements **MUST** be contiguous
 
-------------------------------------------------------------------------
+---
 
 ## A) Fixed Size Window
 
@@ -110,7 +110,7 @@ Used for **contiguous subarray problems**
 ✔ Need sum/max/min/count\
 ✔ Single pass required
 
-``` cpp
+```cpp
 int windowSum = 0;
 
 for (int i = 0; i < k; i++)
@@ -125,7 +125,7 @@ for (int i = k; i < n; i++) {
 }
 ```
 
-------------------------------------------------------------------------
+---
 
 ## B) Variable Size Window
 
@@ -135,7 +135,7 @@ for (int i = k; i < n; i++) {
 ✔ Window can expand and shrink logically\
 ✔ Works best when elements are positive
 
-``` cpp
+```cpp
 int left = 0;
 
 for (int right = 0; right < n; right++) {
@@ -150,41 +150,41 @@ for (int right = 0; right < n; right++) {
 }
 ```
 
-------------------------------------------------------------------------
+---
 
 ## ❌ Limitations
 
--   Only works for contiguous elements
--   Fails when negative numbers break shrinking logic
--   Cannot handle non-local constraints
--   Cannot select non-adjacent elements
+- Only works for contiguous elements
+- Fails when negative numbers break shrinking logic
+- Cannot handle non-local constraints
+- Cannot select non-adjacent elements
 
-------------------------------------------------------------------------
+---
 
 # 3️⃣ Kadane's Algorithm
 
 Used for **Maximum Contiguous Subarray Sum**
 
-------------------------------------------------------------------------
+---
 
 ## ✅ When to Use
 
--   Maximum subarray sum
--   Minimum subarray sum (modified)
--   Circular subarray (modified)
+- Maximum subarray sum
+- Minimum subarray sum (modified)
+- Circular subarray (modified)
 
-------------------------------------------------------------------------
+---
 
 ## 🔹 Mathematical Requirement
 
 If current prefix sum becomes negative, discard it because it reduces
 future sums.
 
-------------------------------------------------------------------------
+---
 
 ## Template
 
-``` cpp
+```cpp
 int maxSum = arr[0];
 int currentSum = 0;
 
@@ -197,32 +197,32 @@ for (int i = 0; i < n; i++) {
 }
 ```
 
-------------------------------------------------------------------------
+---
 
 ## ❌ Limitations
 
--   Cannot count number of subarrays
--   Cannot enforce fixed-length subarray
--   Cannot handle extra constraints (like at least k length)
--   Works only for sum/product optimization
--   Only for contiguous elements
+- Cannot count number of subarrays
+- Cannot enforce fixed-length subarray
+- Cannot handle extra constraints (like at least k length)
+- Works only for sum/product optimization
+- Only for contiguous elements
 
-------------------------------------------------------------------------
+---
 
 # 4️⃣ Prefix Sum
 
 Used for **Range Queries and Subarray Counting**
 
-------------------------------------------------------------------------
+---
 
 ## ✅ When to Use
 
--   Multiple range sum queries
--   Subarray sum = k
--   Count subarrays
--   Cumulative frequency
+- Multiple range sum queries
+- Subarray sum = k
+- Count subarrays
+- Cumulative frequency
 
-------------------------------------------------------------------------
+---
 
 ## 🔹 Requirements
 
@@ -230,11 +230,11 @@ Used for **Range Queries and Subarray Counting**
 ✔ Array should be mostly static (no frequent updates)\
 ✔ Build prefix array first
 
-------------------------------------------------------------------------
+---
 
 ## 🔹 Build Prefix Array
 
-``` cpp
+```cpp
 vector<int> prefix(n);
 prefix[0] = arr[0];
 
@@ -242,21 +242,21 @@ for (int i = 1; i < n; i++)
     prefix[i] = prefix[i - 1] + arr[i];
 ```
 
-------------------------------------------------------------------------
+---
 
 ## 🔹 Range Sum Query
 
-``` cpp
+```cpp
 int rangeSum = prefix[R] - (L > 0 ? prefix[L - 1] : 0);
 ```
 
 Time: - Build: O(n) - Query: O(1)
 
-------------------------------------------------------------------------
+---
 
 ## 🔹 Subarray Sum = K
 
-``` cpp
+```cpp
 unordered_map<int,int> mp;
 mp[0] = 1;
 
@@ -272,16 +272,16 @@ for (int i = 0; i < n; i++) {
 }
 ```
 
-------------------------------------------------------------------------
+---
 
 ## ❌ Limitations
 
--   Not efficient for frequent updates
--   Extra O(n) space
--   Does not optimize max/min directly
--   Requires additive property
+- Not efficient for frequent updates
+- Extra O(n) space
+- Does not optimize max/min directly
+- Requires additive property
 
-------------------------------------------------------------------------
+---
 
 # 🎯 Master Decision Checklist
 
@@ -295,7 +295,7 @@ Before solving any array problem, ask:
 6.  Are numbers only positive?
 7.  Are updates involved?
 
-------------------------------------------------------------------------
+---
 
 # 🏁 Final Conclusion
 
