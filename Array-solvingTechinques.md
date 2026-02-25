@@ -8,7 +8,7 @@ This document covers:
 - [Prefix Sum](#4️⃣-prefix-sum)
 
 For each pattern: - When to use - Requirements - How to apply -
-Limitations - Failure cases
+Limitations - Failure cases.
 
 ---
 
@@ -98,7 +98,7 @@ Used for **contiguous subarray problems**
 
 ## 🔹 Core Requirement
 
-👉 Elements **MUST** be contiguous
+👉 Elements **MUST** be contiguous.
 
 ---
 
