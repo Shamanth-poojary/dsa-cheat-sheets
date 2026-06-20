@@ -10,7 +10,7 @@ A collection of personal cheat sheets for Data Structures and Algorithms.
 - [STL-in-C++](STL-in-C++.md)
 - [Array-solvingTechniques](Array-solvingTechinques.md)
 - [Trees](trees.md)
-- [recursion-backtracking](recursion.md)
-
+- [Recursion](recursion.md)
+- [Graphs](graphs.md)
 
   More topics will be added over time
