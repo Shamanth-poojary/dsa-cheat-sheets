@@ -1,6 +1,6 @@
 # Array Problem-Solving Patterns
 
-This document covers:
+This involves:
 
 - [Two Pointer Technique](#1️⃣-two-pointer-technique)
 - [Sliding Window](#2️⃣-sliding-window)
